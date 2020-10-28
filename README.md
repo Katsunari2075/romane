@@ -18,7 +18,7 @@
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| name        | string     | null: false                    |
+| store_name        | string     | null: false                    |
 | address     | string     |                                |
 | genre_id    | integer    | null: false                    |
 | rating_id   | integer    | null: false                    |
