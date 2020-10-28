@@ -2,7 +2,13 @@
   <div class="inner">
     <div class="form__wrapper">
       <h2 class="page-heading">新規投稿</h2>
-        <%= form_with model:@restaurant, local: true do |f|%>
+        <%= form_with model: @restaurant, url:restaurants_path, local: true do |f|%>
+
+          <div class="field">
+            <%= f.label :image, "画像" %><br />
+            <%= f.file_field :image %>
+          </div>
+
           <div class="field">
             <%= f.label :store_name, "店名" %><br />
             <%= f.text_field :store_name %>
@@ -14,13 +20,18 @@
           </div>
 
           <div class="field">
-            <%= f.label :hoge, "コンセプト" %><br />
-            <%= f.text_area :hoge, class: :form__text %>
+            <%= f.label :genre_id, "ジャンル" %><br />
+            <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
           </div>
 
           <div class="field">
-            <%= f.label :hoge, "プロトタイプの画像" %><br />
-            <%= f.file_field :hoge %>
+            <%= f.label :rating_id, "評価" %><br />
+            <%= f.collection_select(:rating_id, Rating.all, :id, :number, {}, {}) %>
+          </div>
+
+          <div class="field">
+            <%= f.label :description, "説明" %><br />
+            <%= f.text_area :description, class: :form__text %>
           </div>
 
           <div class="actions">
