@@ -1,4 +1,9 @@
 class RestaurantsController < ApplicationController
+
+  before_action :authenticate_user!, only: [:show, :edit, :new]
+  before_action :move_to_index, only: :edit
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -17,18 +22,12 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
-    unless current_user.id == @restaurant.user_id
-      redirect_to restaurant_path
-    end
   end
 
   def update
-    @restaurant = Restaurant.find(params[:id])
     if @restaurant.update(restaurant_params)
       redirect_to restaurant_path
     else
@@ -37,14 +36,20 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    restaurant = Restaurant.find(params[:id])
-    if restaurant.destroy
-      redirect_to root_path
-    end
+    redirect_to root_path if @restaurant.destroy
   end
 
   private
   def restaurant_params
     params.require(:restaurant).permit(:store_name, :address, :genre_id, :rating_id, :description, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    @restaurant = Restaurant.find(params[:id])
+    redirect_to root_path unless current_user.id == @restaurant.user_id
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
   end
 end
