@@ -2,6 +2,7 @@ class Restaurant < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
+  has_many :comments
   has_one_attached :image
   belongs_to_active_hash :genre
   belongs_to_active_hash :rating

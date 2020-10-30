@@ -47,6 +47,7 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
+| text       | text       | null: false                    |
 | user       | references | null: false, foreign_key: true |
 | restaurant | references | null: false, foreign_key: true |
 

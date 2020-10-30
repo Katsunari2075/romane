@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
   root to: "restaurants#index"
   resources :users, only: :show
-  resources :restaurants
+  resources :restaurants do
+    resources :comments, only: :create
+  end
 end
