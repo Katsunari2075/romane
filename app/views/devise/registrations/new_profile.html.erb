@@ -1,0 +1,29 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">Profile</h2>
+      <%= form_with model: @profile, local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: @profile %>
+
+        <div class="field">
+          <%= f.label :favorite_food, "好きな食べ物" %><br />
+          <%= f.text_field :favorite_food %>
+        </div>
+
+        <div class="field">
+          <%= f.label :hated_food, "嫌いな食べ物" %><br />
+          <%= f.text_field :hated_food %>
+        </div>
+
+        <div class="field">
+          <%= f.label :profile, "プロフィール" %><br />
+          <%= f.text_area :profile %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
