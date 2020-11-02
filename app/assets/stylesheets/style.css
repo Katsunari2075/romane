@@ -37,7 +37,7 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  background-color: #4D0B1B;
   margin-bottom: 48px;
   padding: 20px 0;
 
@@ -50,34 +50,28 @@ a {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .logo {
   width: 200px;
+
 }
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #929292;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #929292 solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #929292;
 }
 
-.nav__logout{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
-  text-decoration: none;
-  user-select: none;
-}
 .nav__logout:hover{
   opacity: 0.5;
 }
@@ -140,6 +134,8 @@ a {
 .card {
   width: calc((100% - 50px) / 3);
   margin-bottom: 40px;
+  padding: 20px;
+  border: 6px #4D0B1B double;
 }
 .card__img {
   margin-bottom: 16px;
@@ -149,6 +145,7 @@ a {
   font-size: 20px;
   margin-bottom: 8px;
   font-weight: bold;
+  border-bottom: solid 2px black;
 }
 .card__summary {
   font-size: 16px;
