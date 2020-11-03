@@ -3,7 +3,7 @@ class Restaurant < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_one_attached :image, dependent: :destroy
+  has_many_attached :images, dependent: :destroy
   belongs_to_active_hash :genre
   belongs_to_active_hash :rating
 
@@ -12,7 +12,7 @@ class Restaurant < ApplicationRecord
     validates :genre_id
     validates :rating_id
     validates :description
-    validates :image
+    validates :images
   end
 
   with_options numericality: { other_than: 1} do

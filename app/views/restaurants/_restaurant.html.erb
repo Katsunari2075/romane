@@ -1,5 +1,5 @@
 <div class="card">
-  <%= link_to image_tag(restaurant.image, class: :card__img ), restaurant_path(restaurant.id) %>
+  <%= link_to image_tag(restaurant.images[0], class: :card__img ), restaurant_path(restaurant.id) %>
   <div class="card__body">
     <%= link_to restaurant.store_name, root_path, class: :card__title%>
     <p class="card__summary">

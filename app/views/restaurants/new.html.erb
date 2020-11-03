@@ -5,10 +5,15 @@
         <%= form_with model: @restaurant, url:restaurants_path, local: true do |f|%>
 
           <div class="field">
-            <%= f.label :image, "画像" %><br />
-            <%= f.file_field :image %>
-            <div id="image-list"></div>
+            <%= f.label :images, "画像" %><br />
+            <%= f.file_field :images, name: 'restaurant[images][]', id: 'restaurant_image' %>
+            <div id="image-list">
+            </div>
           </div>
+
+          <% @restaurant.images.each do |image| %>
+            <%= image_tag image, class: 'images'%>
+          <% end %>
 
           <div class="field">
             <%= f.label :store_name, "店名" %><br />

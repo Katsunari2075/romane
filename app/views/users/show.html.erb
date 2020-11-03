@@ -12,15 +12,15 @@
           </tr>
           <tr>
             <th class="table__col1">プロフィール</th>
-            <td class="table__col2"><%= @user.profile %></td>
+            <td class="table__col2"><%= @profile.profile %></td>
           </tr>
         </tbody>
       </table>
       <h2 class="page-heading">
-        <%= "ユーザー名さんのプロトタイプ"%>
+        <%= "〜レストラン一覧〜"%>
       </h2>
       <div class="user__card">
-        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+        <%= render partial: "restaurants/restaurant", collection: @restaurant %>
       </div>
     </div>
   </div>
