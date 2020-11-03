@@ -54,7 +54,7 @@ a {
 }
 .logo {
   width: 200px;
-
+  border: 1px #929292 solid;
 }
 .nav__btn{
   display: inline-block;
