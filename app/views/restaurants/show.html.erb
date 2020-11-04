@@ -10,6 +10,9 @@
         <div class="prototype__manage">
           <%= link_to "編集する", edit_restaurant_path(@restaurant.id), class: :prototype__btn %>
           <%= link_to "削除する", restaurant_path(@restaurant.id), method: :delete, class: :prototype__btn %>
+          <div id="like-btn-<%= @restaurant.id %>">
+            <%= render 'likes/like', restaurant: @restaurant %>
+          </div>
         </div>
       <% end %>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>

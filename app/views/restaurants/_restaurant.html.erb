@@ -7,4 +7,7 @@
     </p>
     <%= link_to "by #{restaurant.user.name}", user_path(restaurant.user_id), class: :card__user %>
   </div>
+  <div id="like-btn-<%= restaurant.id %>">
+    <%= render 'likes/like', restaurant: restaurant %>
+  </div>
 </div>

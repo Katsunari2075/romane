@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :restaurants
+  has_many :likes
+  has_many :like_restaurants, through: :likes, source: :restaurant
   has_many :comments
   has_one :profile
 
