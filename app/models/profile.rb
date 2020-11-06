@@ -3,7 +3,6 @@ class Profile < ApplicationRecord
 
   with_options presence: true do
     validates :favorite_food
-    validates :hated_food
     validates :profile
   end
 end
