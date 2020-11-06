@@ -3,7 +3,7 @@
     <div class="form__wrapper">
       <h2 class="page-heading">Profile</h2>
       <%= form_with model: @profile, local: true do |f| %>
-        <%= render "devise/shared/error_messages", resource: @profile %>
+        <%= render 'shared/error_messages', model: f.object %>
 
         <div class="field">
           <%= f.label :favorite_food, "好きな食べ物" %><br />
