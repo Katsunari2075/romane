@@ -3,8 +3,9 @@ ja:
    attributes:
      user:
        name: ユーザー名
-       favorite food: 好きな食べ物
-       profile: プロフィール
+     profile:
+       favorite_food: 好きな食べ物
+       myself: プロフィール
      restaurant:
        images: 画像
        store_name: 店名

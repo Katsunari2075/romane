@@ -23,27 +23,23 @@
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
-          <p class="detail__title">住所</p>
           <p class="detail__message">
             <%= @restaurant.address %>
           </p>
         </div>
         <div class="prototype__detail">
-          <p class="detail__title">ジャンル</p>
           <p class="detail__message">
             <%= @restaurant.genre.name %>
           </p>
         </div>
         <div class="prototype__detail">
-          <p class="detail__title">評価</p>
           <p class="detail__message">
             <%= @restaurant.rating.number %>
           </p>
         </div>
         <div class="prototype__detail">
-          <p class="detail__title">説明</p>
           <p class="detail__message">
-            <%= @restaurant.description %>
+            <%=safe_join(@restaurant.description.split("\n"),tag(:br))%>
           </p>
         </div>
       </div>
@@ -53,7 +49,7 @@
           <%= form_with(model: [@restaurant, @comment], local: true) do |f| %>
             <div class="field">
               <%= f.label :comment, "コメント" %><br />
-              <%= f.text_field :text %>
+              <%= f.text_area :text , class: :comment__field%>
             </div>
             <div class="actions">
               <%= f.submit "送信する", class: :form__btn  %>

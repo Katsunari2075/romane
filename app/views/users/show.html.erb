@@ -20,7 +20,7 @@
           </tr>
           <tr>
             <th class="table__col1">プロフィール</th>
-            <td class="table__col2"><%= @profile.profile %></td>
+            <td class="table__col2"><%=safe_join(@profile.myself.split("\n"),tag(:br))%></td>
           </tr>
         </tbody>
       </table>

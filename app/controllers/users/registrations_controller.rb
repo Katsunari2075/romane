@@ -34,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def profile_params
-    params.require(:profile).permit(:favorite_food, :hated_food, :profile)
+    params.require(:profile).permit(:favorite_food, :hated_food, :myself)
   end
 
   # GET /resource/sign_up
