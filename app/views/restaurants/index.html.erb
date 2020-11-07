@@ -1,13 +1,13 @@
 <main class="main">
   <div class="inner">
-    <%# ログインしているときは以下を表示する %>
-      <%# <div class="greeting"> %>
-        <%# こんにちは、 %>
-        <%# <%= link_to "ユーザー名さん", root_path, class: :greeting__link%>
-      <%# </div> %>
-    <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
       <%= render partial: "restaurant", collection: @restaurants %>
     </div>
   </div>
+  <div class='restaurant-btn'>
+  <span class='restaurant-btn-text'>投稿する</span>
+  <a href='/restaurants/new'>
+    <%= image_tag 'restaurant.png' , size: '190x55' ,class: "restaurant-btn-icon" %>
+  </a>
+</div>
 </main>

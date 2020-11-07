@@ -158,6 +158,29 @@ a {
   text-decoration: underline;
 }
 
+.restaurant-btn {
+  width: 120px;
+  background: #4D0B1B;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+.restaurant-btn-text {
+  color: #929292;
+  display: block;
+  font-size: 18px;
+  text-decoration: dashed;
+  margin-bottom: 5px;
+}
+
+.restaurant-btn-icon {
+  width: 60%;
+}
+
 /* 詳細ページ */
 .prototype__wrapper{
   min-height: calc(100vh - 161px);
