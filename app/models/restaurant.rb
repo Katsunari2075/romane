@@ -17,10 +17,8 @@ class Restaurant < ApplicationRecord
     validates :images
   end
 
-  with_options numericality: { other_than: 1} do
-    validates :genre_id
-    validates :rating_id
-  end
+  validates_inclusion_of :genre_id, in:2..23
+  validates_inclusion_of :rating_id, in:2..6
 
   
   def liked_by?(user)
