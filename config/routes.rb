@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   end
   root to: "restaurants#index"
   resources :users, only: :show
+
   resources :restaurants do
     resources :comments, only: :create
     post 'add' => 'likes#create'
     delete '/add' => 'likes#destroy'
   end
+
+  resources :relationships, only: [:create, :destroy]
 end
