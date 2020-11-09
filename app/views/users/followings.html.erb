@@ -1,0 +1,6 @@
+<h2 class="follow_title">フォロー中</h2>
+
+<% @users.each do |user| %>
+  <%= "username: " %>
+  <%= link_to user.name, user_path(user.id) %>
+<% end %>
