@@ -1,32 +1,35 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= @user.name%>
-      </h2>
-      <%= render 'relationships/follow_button', user: @user %>
-      <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
-      <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @user.name %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">好きな食べ物</th>
-            <td class="table__col2"><%= @profile.favorite_food %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">嫌いな食べ物</th>
-            <td class="table__col2"><%= @profile.hated_food %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">プロフィール</th>
-            <td class="table__col2"><%=safe_join(@profile.myself.split("\n"),tag(:br))%></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="user_information">
+        <h2 class="page-heading">
+          <%= @user.name%>
+        </h2>
+        <%= render 'relationships/follow_button', user: @user %>
+        <%= link_to "フォロー: #{@user.followings.count}", followings_user_path(@user.id) %>
+        <%= "/" %>
+        <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th class="table__col1">名前</th>
+              <td class="table__col2"><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">好きな食べ物</th>
+              <td class="table__col2"><%= @profile.favorite_food %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">嫌いな食べ物</th>
+              <td class="table__col2"><%= @profile.hated_food %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">プロフィール</th>
+              <td class="table__col2"><%=safe_join(@profile.myself.split("\n"),tag(:br))%></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <h2 class="page-heading">
         <%= "〜レストラン一覧〜"%>
       </h2>

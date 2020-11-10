@@ -4,21 +4,23 @@
       <h2 class="page-heading">ユーザーログイン</h2>
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+        <div class="user_form">
+          <div class="field">
+            <%= f.label :email, "メールアドレス  <必須>" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: :form__text %>
+          </div>
 
-        <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-          <% end %>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
+          <div class="field">
+            <%= f.label :password, "パスワード  <必須>" %><br />
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <% end %>
+            <%= f.password_field :password, autocomplete: "current-password", class: :form__text %>
+          </div>
 
-        <div class="actions">
-          <%= f.submit "ログイン", class: :form__btn  %>
+          <div class="actions">
+            <%= f.submit "ログイン", class: :form__btn  %>
+          </div>
         </div>
       <% end %>
     </div>

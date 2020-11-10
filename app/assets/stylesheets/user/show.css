@@ -1,6 +1,48 @@
+.user_information{
+  background-color: #f6f6f6;
+  padding: 15px 0;
+  text-align: center;
+}
+
 .follow_btn{
   width: 70px;
   height: 30px;
   background-color: #4D0B1B;
   color: #929292;
+}
+
+.follow_btn{
+  width: auto;
+}
+
+.user__wrapper{
+  min-height: calc(100vh - 161px);
+}
+.table{
+  border-collapse: collapse;
+  width: 50%;
+  margin: 32px auto;
+}
+.table__col1{
+  color: #929292;
+  text-align: left;
+  font-weight: bold;
+  background: #4D0B1B;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 30%;
+  padding: 8px;
+}
+.table__col2{
+  text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 70%;
+  padding: 16px 8px;
+}
+.user__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }

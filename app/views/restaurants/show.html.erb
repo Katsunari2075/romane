@@ -18,7 +18,7 @@
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="restaurant__image">
         <% @restaurant.images.each do |image| %>
-          <%= image_tag image %>
+          <%= image_tag image, class: 'images' %>
         <% end %>
       </div>
       <div class="prototype__body">

@@ -5,23 +5,25 @@
       <%= form_with model: @profile, local: true do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
 
-        <div class="field">
-          <%= f.label :favorite_food, "好きな食べ物" %><br />
-          <%= f.text_field :favorite_food %>
-        </div>
+        <div class="user_form">
+          <div class="field">
+            <%= f.label :favorite_food, "好きな食べ物  <必須>" %><br />
+            <%= f.text_field :favorite_food, class: :form__text %>
+          </div>
 
-        <div class="field">
-          <%= f.label :hated_food, "嫌いな食べ物" %><br />
-          <%= f.text_field :hated_food %>
-        </div>
+          <div class="field">
+            <%= f.label :hated_food, "嫌いな食べ物" %><br />
+            <%= f.text_field :hated_food, class: :form__text %>
+          </div>
 
-        <div class="field">
-          <%= f.label :myself, "プロフィール" %><br />
-          <%= f.text_area :myself %>
-        </div>
+          <div class="field">
+            <%= f.label :myself, "プロフィール  <必須>" %><br />
+            <%= f.text_area :myself, class: :form__text %>
+          </div>
 
-        <div class="actions">
-          <%= f.submit "Sign up", class: :form__btn  %>
+          <div class="actions">
+            <%= f.submit "Sign up", class: :form__btn  %>
+          </div>
         </div>
       <% end %>
     </div>
