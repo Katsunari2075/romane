@@ -24,6 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @profile = Profile.new(profile_params)
       unless @profile.valid?
         render :new_profile and return
+      else
+        redirect_to root_path
       end
     @user.build_profile(@profile.attributes)
     @user.save

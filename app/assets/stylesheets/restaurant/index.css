@@ -59,6 +59,7 @@ a {
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
+  margin-right: 30px;
   font-size: 0.8em;
   color: #929292;
   text-decoration: none;
@@ -206,6 +207,7 @@ a {
   justify-content: space-around;
   align-items: center;
   border:6px #4D0B1B double;
+  background-color: #f6f6f6;
 }
 .prototype__detail{
   display: flex;
