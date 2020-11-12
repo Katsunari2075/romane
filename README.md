@@ -1,89 +1,49 @@
-# テーブル設計
+# Romane
+Romaneは自分が行ったレストランを記録・共有することができるアプリケーションです。
 
-## users テーブル
+***
+## URL
+[Romane](https://romane.herokuapp.com/)
+***
+## テスト用アカウント
+* メールアドレス：romane@romane
+* パスワード：romane7777
+***
+## 利用方法
+* テストアカウントでログイン→トップページから投稿ボタン押下→レストラン情報を入力→投稿
+* 確認後、ログアウト処理をお願いします。
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+***
+## 目指した課題解決
+私はこのアプリケーションで、飲食が好きな方達に自分自身が好きなレストラン情報を共有していただきたいと考えています。既存のグルメアプリは確かに信用度も高く、多くの方が利用していますが、評価に関してはどうしても多数決になってしまいます。味覚は人それぞれですし、レストランに行った時に内装・接客・味どこを重視して見るのかは人によって異なります。  
+そこでこちらのアプリケーションを使うと自分自身が好きなレストランを記録・共有できます。また、自身がフォローしている方の好きなレストランもチェックすることが可能になり、今後行きたいレストランの前情報を入手することができます。
 
-### Association
+***
+## 洗い出した要件
+* S3への画像保存
+* 画像複数投稿機能
+* いいね機能
+* フォロー機能
+* コメント機能
+* 新規登録機能(ウィザード形式)
 
-- has_one :profile
-- has_many :restaurants
-- has_many :comments
-- has_many :likes
-- has_many :like_restaurants, through: :likes, source: :restaurant
-- has_many :relationships
-- has_many :followings, through: :relationships, source: :follow
-- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-- has_many :followers, through: :reverse_of_relationships, source: :user
+***
+## 実装機能
+* 画像複数投稿機能  
+画像を複数選択して投稿することができる
+* いいね機能  
+ハートマークをクリックしてリロードすると気に入った投稿にいいねすることができる
+* フォロー機能  
+フォローボタンをクリックすると下記のように、ユーザーをフォローすることができる。  
+![Animated GIF-downsized](https://user-images.githubusercontent.com/71495199/98879371-b8f42800-24c8-11eb-8ef1-22d512191d3d.gif)
 
-## profiles テーブル
+***
+## データベース設計
+![ER図](https://i.gyazo.com/59f376ca580b64cc83a560862724a45f.png)
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| favorite_food | string     | null: false                    |
-| hated_food    | string     |                                |
-| profile       | text       | null: false                    |
-| user          | references | null: false, foreign_key: true |
+***
+## ローカルでの動作方法
+コマンド： git clone https://github.com/Katsunari2075/romane.git
 
-### Association
-
-- belongs_to :user, optional: true
-
-## restaurants テーブル
-
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| store_name  | string     | null: false                    |
-| address     | string     |                                |
-| genre_id    | integer    | null: false                    |
-| rating_id   | integer    | null: false                    |
-| description | text       | null: false                    |
-| user        | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- has_many :comments
-- has_many :likes
-- has_many :users, through: :likes
-
-## likes テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user       | references | null: false, foreign_key: true |
-| restaurant | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :restaurant
-
-## relationships テーブル
-
-| Column    | Type    | Options                       |
-| --------- | ------- | ----------------------------- |
-| user_id   | integer | foreign_key:true              |
-| follow_id | integer | foreign_key:{to_table: users} |
-
-### Association
-
-- belongs_to :user
-- belongs_to :follow, class_name: 'User'
-
-## comments テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| text       | text       | null: false                    |
-| user       | references | null: false, foreign_key: true |
-| restaurant | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :restaurant
+* ruby: 2.6.5
+* rails: 6.0.3.4
