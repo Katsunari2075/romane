@@ -1,6 +1,10 @@
-<h2 class="follow_title">フォロー中</h2>
-
-<% @users.each do |user| %>
-  <%= "username: " %>
-  <%= link_to user.name, user_path(user.id) %>
-<% end %>
+<main class="main">
+  <div class="inner">
+    <div class="follow__wrapper">
+      <h2 class="page-heading">フォロー中</h2>
+      <% @users.each do |user| %>
+        <%= link_to user.name, user_path(user.id), {class: "follow_name"} %>
+      <% end %>
+    </div>
+  </div>
+</main>

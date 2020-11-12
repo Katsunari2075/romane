@@ -18,6 +18,26 @@
 .user__wrapper{
   min-height: calc(100vh - 161px);
 }
+
+.follow__wrapper{
+  min-height: calc(100vh - 161px);
+  margin-bottom: 40px;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.follow_name{
+  border-bottom: 2px #4D0B1B solid;
+  margin-bottom: 9px;
+}
+
+.page-heading {
+  font-size: 30px;
+  margin: 28px auto;
+}
+
 .table{
   border-collapse: collapse;
   width: 50%;
