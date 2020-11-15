@@ -8,11 +8,7 @@ RSpec.describe "レストラン投稿", type: :system do
   context 'レストラン情報が投稿できるとき' do
     it 'ログインしたユーザーは新規投稿できる' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'メールアドレス <必須>', with: @user.email
-      fill_in 'パスワード <必須>', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@user)
       # 新規投稿ページへのリンクがあることを確認する
       expect(page).to have_content('投稿する')
       # 投稿ページに移動する
