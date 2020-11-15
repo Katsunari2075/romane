@@ -4,10 +4,12 @@
       <%= render partial: "restaurant", collection: @restaurants %>
     </div>
   </div>
-  <div class='restaurant-btn'>
-  <span class='restaurant-btn-text'>投稿する</span>
-  <a href='/restaurants/new'>
-    <%= image_tag 'restaurant.png' , size: '190x55' ,class: "restaurant-btn-icon" %>
-  </a>
-</div>
+  <% if user_signed_in?%>
+    <div class='restaurant-btn'>
+    <span class='restaurant-btn-text'>投稿する</span>
+    <a href='/restaurants/new'>
+      <%= image_tag 'restaurant.png' , size: '190x55' ,class: "restaurant-btn-icon" %>
+    </a>
+    </div>
+  <% end %>
 </main>
